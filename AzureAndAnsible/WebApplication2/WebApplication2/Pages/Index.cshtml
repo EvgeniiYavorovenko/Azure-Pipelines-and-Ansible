@@ -1,0 +1,10 @@
+﻿@page
+@model WebApplication2.Controllers.GetKeyController
+@{
+    ViewData["Title"] = "Home page";
+}
+
+    <div class="text-center">
+        <h1 class="display-4">Welcome <b>@Model.GetMyFullName() </b></h1>
+        <h1 class="display-4">Connection String: <b>@Model.GetConnectionString() </b></h1>
+    </div>

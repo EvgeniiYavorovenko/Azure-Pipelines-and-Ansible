@@ -1,0 +1,19 @@
+---
+- name: Clear folder
+  shell: sudo rm -r '{{ dest_file }}'
+  become: true
+  
+- name: Create folder
+  file:
+    path: '{{ dest_file }}'
+    state: directory
+  become: true
+
+- name: Copy project
+  copy:
+    src: '{{ src_file }}'
+    dest: '{{ dest_file }}'
+  become: true
+
+- name: Reload nginx
+  shell: sudo nginx -s reload

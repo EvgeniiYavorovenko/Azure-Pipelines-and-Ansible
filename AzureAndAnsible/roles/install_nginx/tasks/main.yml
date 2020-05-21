@@ -1,0 +1,19 @@
+---
+- name: Install nginx
+  apt: name=nginx state=latest
+  become: yes
+- name: start nginx
+  service:
+      name: nginx
+      state: started
+  become: yes
+- name: copy the nginx config file
+  copy:
+    src: ./static_site.cfg
+    dest: /etc/nginx/sites-available/default
+  become: yes
+- name: restart nginx
+  service:
+      name: nginx
+      state: restarted
+  become: yes  

@@ -1,0 +1,13 @@
+---
+   - hosts: Servers
+     vars:
+       project_folder: /home
+       project_name: WebApplication2
+       configuration: Release
+       runtime: ubuntu.18.04-x64
+     become: yes
+     roles: 
+       - {role: roles/download_repository}
+       - {role: roles/install_nginx}
+       - {role: roles/install_zip}
+       - {role: roles/file_manager}
